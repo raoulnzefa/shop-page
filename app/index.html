@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <div class="header__block">
+                <div class="header__text big">Логотип</div>
+                <div class="header__text">{{ header }}</div>
+            </div>
+            <div class="header__text button"
+                 v-if="loaded"
+                 @click="exit()"
+            >Выйти из аккаунта</div>
+        </header>
+        <main class="main">
+                <form class="form"
+                      v-if="!loaded"
+                ><div class="form__item">
+                        <label for="login">Логин</label>
+                        <input type="email"
+                               id="login"
+                               placeholder="Введите Email"
+                               v-model="login"
+                               required
+                        >
+                    </div>
+                    <div class="form__item">
+                        <label for="password">Пароль</label>
+                        <input type="password"
+                               id="password"
+                               placeholder="Введите пароль"
+                               v-model="password"
+                               required
+                        >
+                    </div>
+                    <div class="form__alarm">{{ message }}</div>
+                    <input type="button"
+                           value="Войти"
+                           class="form__button"
+                           @click.prevent="logIn()"
+                    >
+                </form>
+            <div v-if="loaded && !isGood" class="loaded">
+                <div class="loaded__name">Наша продукция</div>
+                <div class="loaded__list">
+                    <div class="product" v-for="el in store" @click="pickGood(el)">
+                        <img :src="el.img_url" class="product__img">
+                        <div class="product__name">Роутер</div>
+                        <div class="product__box">
+                            <div class="product__model">{{ el.sku }}</div>
+                            <div class="product__price">{{ el.retailPrice }} грн</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="isGood" class="good">
+                <div class="good__name">Товар</div>
+                <div class="detailed" v-for="el in good">
+                    <img :src="el.img_url" class="detailed__img">
+                    <div class="detailed__description description">
+                        <div class="description__name">Роутер</div>
+                        <div class="description__model size">{{ el.sku }}</div>
+                        <div class="description__model">Количество товара: {{ el.totalStock }}</div>
+                        <div class="description__price">{{ el.retailPrice }} грн</div>
+                        <div class="description__model">{{ el.description }} грн</div>
+                    </div>
+                </div>
+                <div class="loaded__name">Похожие товары</div>
+                <div class="loaded__list">
+                    <div class="product" v-for="el in similar" @click="pickGood(el)">
+                        <img :src="el.img_url" class="product__img">
+                        <div class="product__name">Роутер</div>
+                        <div class="product__box">
+                            <div class="product__model">{{ el.sku }}</div>
+                            <div class="product__price">{{ el.retailPrice }} грн</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer"></footer>
+    </div>
+    <script type="module" src="frontend.js"></script>
+</body>
+</html>

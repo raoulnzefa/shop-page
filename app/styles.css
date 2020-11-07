@@ -1,0 +1,245 @@
+body {
+    margin: 0;
+    font-family: "Arial", serif;
+}
+
+#app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+
+/* Стили для шапки */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 4vh;
+    padding-left: 10%;
+    background-color: #5cb1ba;
+    cursor: default;
+    box-sizing: border-box;
+}
+
+.header__block {
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50%;
+}
+
+.header__text {
+    color: white;
+}
+
+.big {
+    font-size: 2vw;
+}
+
+.button {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.button:hover {
+    color: red;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: max-content;
+}
+
+.main__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Стили для Логина */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 300px;
+    height: 300px;
+}
+
+.form__item {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1vw 0;
+}
+
+.form__item > input {
+    padding: 0.3vw;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.form__alarm {
+    color: red;
+}
+
+.form__button {
+    padding: 0.5vw 1vw;
+    background-color: #5cb1ba;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Стили для Магазина */
+
+.loaded {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: max-content;
+}
+
+.loaded__name {
+    color: #5cb1ba;
+    font-size: 3vw;
+    font-weight: bold;
+    margin: 3vw 0 1vw 0;
+}
+
+.loaded__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    width: 100%;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid #ccd1ca;
+    margin: 1vw;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px 2px #888;
+    cursor: pointer;
+}
+
+.product__img {
+    width: 20vw;
+    height: 12vw;
+}
+
+.product__name {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    color: darkslategrey;
+    padding: 0 1vw 0 1vw;
+    box-sizing: border-box;
+}
+
+.product__box {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0.5vw 0 1vw 0;
+    padding: 0 1vw 0 1vw;
+}
+
+.product__price {
+    color: green;
+}
+
+/*Стили для выбранного товара*/
+
+.good {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: max-content;
+}
+
+.good__name {
+    color: #5cb1ba;
+    font-size: 3vw;
+    font-weight: bold;
+    margin: 3vw 0 1vw 0;
+}
+
+.detailed {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 1vw;
+    border-radius: 5px;
+}
+
+.detailed__img {
+    width: 35vw;
+    height: 28vw;
+    border: 1px solid #ccd1ca;
+    margin-right: 1vw;
+}
+
+.detailed__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.description__name {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    color: darkslategrey;
+    box-sizing: border-box;
+    margin-bottom: 0.5vw;
+}
+
+.description__model {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    color: #000000;
+    box-sizing: border-box;
+}
+
+.size {
+    font-size: 2.5vw;
+    font-weight: bold;
+    margin-bottom: 1vw;
+}
+
+.description__price {
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: green;
+}
+
+.footer {
+    width: 100%;
+    height: 4vh;
+    background-color: #5cb1ba;
+}
