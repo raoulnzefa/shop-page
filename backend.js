@@ -1,14 +1,14 @@
-const store = require('./store.js')
-const logfile = require('./login.js')
-const express = require('express')
-const path = require('path')
-const app = express()
+const store = require('./store.js');
+const logfile = require('./login.js');
+const express = require('express');
+const path = require('path');
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
 app.get('/api/store', (req, res) => {
     res.status(200).json(store.store)
-})
+});
 
 app.post('/api/login', (req, res) => {
     if(req.body.login.indexOf('@mail.ch')) {
@@ -20,14 +20,16 @@ app.post('/api/login', (req, res) => {
     } else {
         res.status(200).json('');
     }
-})
+});
 
 app.use(express.static(path.resolve(__dirname, 'app')))
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'app', 'index.html'))
-})
+});
 
-app.listen(3000, () => {
+const PORT = process.env.port || 80
+
+app.listen(PORT, () => {
     console.log('Server has been started at port 3000...')
-})
+});

@@ -14,6 +14,7 @@ let app = new Vue ({
             isGood: false,
             good: {},
             similar: [],
+            tmp: undefined
         }
     },
     computed: {
@@ -58,7 +59,19 @@ let app = new Vue ({
             this.good = {};
             this.similar = [];
 
-        }
+        },
+        // reqS() {
+        //     fetch('/image.png')
+        //         .then(res => res.blob())
+        //         .then(blob => {
+        //             console.log(blob);
+        //             this.tmp = new Blob([res.url], 'photo');
+        //             console.log(this.tmp);
+        //             // this.tmp = new Blob(res, 'photo');
+        //         });
+        //     // console.log(this.tmp);
+        //
+        // }
     },
     watch: {
          async permission() {

@@ -8,6 +8,8 @@
 </head>
 <body>
     <div id="app">
+        <!--<button class="btn-server" @click="reqS()">download</button>-->
+        <!--<img :src="tmp">-->
         <header class="header">
             <div class="header__block">
                 <div class="header__text big">Логотип</div>
@@ -25,7 +27,7 @@
                         <label for="login">Логин</label>
                         <input type="email"
                                id="login"
-                               placeholder="Введите Email"
+                               placeholder="Введите Email (123)"
                                v-model="login"
                                required
                         >
@@ -34,7 +36,7 @@
                         <label for="password">Пароль</label>
                         <input type="password"
                                id="password"
-                               placeholder="Введите пароль"
+                               placeholder="Введите пароль (123)"
                                v-model="password"
                                required
                         >
