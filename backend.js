@@ -3,6 +3,7 @@ const logfile = require('./login.js');
 const express = require('express');
 const path = require('path');
 const app = express();
+const PORT = process.env.PORT || 80;
 
 app.use(express.json());
 
@@ -22,14 +23,12 @@ app.post('/api/login', (req, res) => {
     }
 });
 
-app.use(express.static(path.resolve(__dirname, 'app')))
+app.use(express.static(path.resolve(__dirname, 'app')));
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'app', 'index.html'))
 });
 
-const PORT = process.env.port || 80
-
 app.listen(PORT, () => {
-    console.log('Server has been started at port 3000...')
+    console.log('Server has been started...')
 });
